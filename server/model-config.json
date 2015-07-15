@@ -43,5 +43,19 @@
     "public": true,
     "$promise": {},
     "$resolved": true
+  },
+  "Review": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Reviewer": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Games": {
+    "dataSource": "db",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }

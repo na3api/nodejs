@@ -1,0 +1,12 @@
+{
+  "db": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "http://52.27.169.51/",
+    "database": "games",
+    "password": "n171rijs",
+    "name": "db",
+    "connector": "mysql",
+    "user": "root"
+  }
+}

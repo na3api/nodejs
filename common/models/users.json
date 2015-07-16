@@ -59,22 +59,6 @@
       },
       "_selectable": false
     },
-    "salt": {
-      "type": "String",
-      "required": false,
-      "length": 40,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "salt",
-        "dataType": "varchar",
-        "dataLength": 40,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      },
-      "_selectable": true
-    },
     "email": {
       "type": "String",
       "required": true,
@@ -135,22 +119,6 @@
         "dataLength": 200,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "Y"
-      },
-      "_selectable": true
-    },
-    "genderId": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
-      "mysql": {
-        "columnName": "gender_id",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
         "nullable": "Y"
       },
       "_selectable": true

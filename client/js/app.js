@@ -6,28 +6,6 @@ angular
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
     $stateProvider
-      .state('add-review', {
-        url: '/add-review',
-        templateUrl: 'views/review-form.html',
-        controller: 'AddReviewController',
-        authenticate: true
-      })
-      .state('all-reviews', {
-        url: '/all-reviews',
-        templateUrl: 'views/all-reviews.html',
-        controller: 'AllReviewsController'
-      })
-      .state('edit-review', {
-        url: '/edit-review/:id',
-        templateUrl: 'views/review-form.html',
-        controller: 'EditReviewController',
-        authenticate: true
-      })
-      .state('delete-review', {
-        url: '/delete-review/:id',
-        controller: 'DeleteReviewController',
-        authenticate: true
-      })
       .state('forbidden', {
         url: '/forbidden',
         templateUrl: 'views/forbidden.html',
@@ -41,11 +19,10 @@ angular
         url: '/logout',
         controller: 'AuthLogoutController'
       })
-      .state('my-reviews', {
-        url: '/my-reviews',
-        templateUrl: 'views/my-reviews.html',
-        controller: 'MyReviewsController',
-        authenticate: true
+      .state('map', {
+        url: '/map',
+        templateUrl: 'views/maps.html',
+        controller: 'map.MapController'
       })
       .state('sign-up', {
         url: '/sign-up',
@@ -56,7 +33,7 @@ angular
         url: '/sign-up/success',
         templateUrl: 'views/sign-up-success.html'
       });
-    $urlRouterProvider.otherwise('all-reviews');
+    $urlRouterProvider.otherwise('map');
   }])
   .run(['$rootScope', '$state', function($rootScope, $state) {
     $rootScope.$on('$stateChangeStart', function(event, next) {

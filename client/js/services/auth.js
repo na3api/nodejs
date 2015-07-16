@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .factory('AuthService', ['Reviewer', '$q', '$rootScope', function(User, $q,
+  .factory('AuthService', ['User', '$q', '$rootScope', function(User, $q,
       $rootScope) {
     function login(email, password) {
       return User
@@ -13,7 +13,7 @@ angular
             email: email
           };
         });
-    }
+    } 
 
     function logout() {
       return User
@@ -23,13 +23,10 @@ angular
          $rootScope.currentUser = null;
        });
     }
-
-    function register(email, password) {
+    
+    function register(userdata) {
       return User
-        .create({
-         email: email,
-         password: password
-       })
+        .create(userdata)
        .$promise;
     }
 

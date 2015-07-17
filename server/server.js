@@ -1,7 +1,10 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
+var session = require('cookie-session');
 
 var app = module.exports = loopback();
+
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 
 app.start = function() {
   // start the web server

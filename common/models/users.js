@@ -1,7 +1,6 @@
 module.exports = function (Users) { 
     Users.add = function (cb) {
         Users.create({id:2, email: 'foo@bar.com', password: 'bar'}, function (err, user) {
-            console.log(user);
             cb(null, user);
         });
     }

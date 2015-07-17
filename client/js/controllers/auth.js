@@ -1,12 +1,12 @@
 angular
         .module('app')
-        .controller('AuthLoginController', ['$scope', 'AuthService', '$state',
+        .controller('AuthLoginController', ['$scope', 'AuthService', '$state', '$session',
             function ($scope, AuthService, $state) {
                 $scope.user = {
                     email: 'admin@admin.com',
                     password: '123456'
                 };
-
+                console.log($session)
                 $scope.login = function () {
                     AuthService.login($scope.user.email, $scope.user.password)
                             .then(function () {
@@ -24,7 +24,6 @@ angular
         .controller('SignUpController', ['$scope', 'AuthService', '$state',
             function ($scope, AuthService, $state) {
                 $scope.register = function () {
-                    console.log($scope.user)
                     AuthService.register($scope.user)
                             .then(function () {
                                 $state.transitionTo('map');

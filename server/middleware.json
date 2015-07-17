@@ -12,7 +12,15 @@
       }
     }
   },
-  "session": {},
+  "session": {
+     "loopback#session": {
+      "params": {
+        "saveUninitialized": true,
+        "resave": true,
+        "secret": "keyboard cat"
+      }
+    }
+  },
   "auth": {},
   "parse": {},
   "routes": {},

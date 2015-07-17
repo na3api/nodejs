@@ -3,13 +3,15 @@ angular
   .factory('AuthService', ['User', '$q', '$rootScope', function(User, $q,
       $rootScope) {
     function login(email, password) {
-      return User
+        console.log(session);
+        return User
         .login({email: email, password: password})
         .$promise
         .then(function(response) {
           $rootScope.currentUser = {
             id: response.user.id,
             tokenId: response.id,
+            username: response.user.username,
             email: email
           };
         });

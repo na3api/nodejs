@@ -22,7 +22,7 @@ angular
       .state('map', {
         url: '/map',
         templateUrl: 'views/maps.html',
-        controller: 'map.MapController'
+        controller: 'MapController'
       })
       .state('sign-up', {
         url: '/sign-up',
@@ -33,7 +33,12 @@ angular
         url: '/sign-up/success',
         templateUrl: 'views/sign-up-success.html'
       });
-    $urlRouterProvider.otherwise('map');
+//    if(!currentUser)
+//    {
+//        $urlRouterProvider.otherwise('login');
+//    }else{
+//        $urlRouterProvider.otherwise('map');
+//    }
   }])
   .run(['$rootScope', '$state', function($rootScope, $state) {
     $rootScope.$on('$stateChangeStart', function(event, next) {

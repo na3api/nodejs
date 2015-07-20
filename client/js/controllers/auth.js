@@ -1,18 +1,24 @@
 angular
         .module('app')
-        .controller('AuthLoginController', ['$scope', 'AuthService', '$state', '$session',
-            function ($scope, AuthService, $state) {
+        .controller('AuthLoginController', ['User', '$scope', 'AuthService', '$state',
+            function (User, $scope, AuthService, $state) {
                 $scope.user = {
                     email: 'admin@admin.com',
                     password: '123456'
                 };
-                console.log($session)
-                $scope.login = function () {
-                    AuthService.login($scope.user.email, $scope.user.password)
-                            .then(function () {
-                                $state.go('map');
-                            });
-                };
+                if(!User.isAuthenticated)
+                {
+                    $scope.login = function () {
+                        AuthService.login($scope.user.email, $scope.user.password)
+                                .then(function () {
+                                    $state.go('map');
+                                }); 
+                    };
+                    
+                }else{
+                    $state.go('map');
+                    //window.location.href = window.location.origin + "#/map"; 
+                }
             }])
         .controller('AuthLogoutController', ['$scope', 'AuthService', '$state',
             function ($scope, AuthService, $state) {

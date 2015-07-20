@@ -3,7 +3,7 @@ angular
   .factory('AuthService', ['User', '$q', '$rootScope', function(User, $q,
       $rootScope) {
     function login(email, password) {
-        console.log(session);
+
         return User
         .login({email: email, password: password})
         .$promise
@@ -19,7 +19,7 @@ angular
 
     function logout() {
       return User
-       .logout()
+       .logout()//{access_token:$rootScope.currentUser.tokenId})
        .$promise
        .then(function() {
          $rootScope.currentUser = null;

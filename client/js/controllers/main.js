@@ -1,6 +1,6 @@
 angular
         .module('app')
-        .controller('mainCtrl', ['User', '$scope', '$state', '$rootScope', function (User, $scope, $rootScope, $location) {
+        .controller('mainCtrl', ['User', 'Messages','$scope', '$state', '$rootScope', function (User, Messages ,$scope, $rootScope, $location) {
 
                 $scope.menu = [
                     {label: 'Home', route: '/'},
@@ -8,6 +8,25 @@ angular
                     {label: 'Contact', route: '/contact'}
                 ]
 
-                $scope.currentUser = User.getCurrent()
-                console.log($rootScope.currentUser)
+                Messages.find({'filter': {'include': 'user'}}, function(messages){
+                    console.log(messages)
+                    $scope.messages = messages;
+                });
+                if(User.isAuthenticated())
+                {
+                    $scope.currentUser = User.getCurrent();
+                }else{
+                    $scope.currentUser = false;
+                }
+                
+            }])
+        .controller('index', ['User', '$scope', '$state', '$rootScope', function (User, $scope, $rootScope, $location) {
+
+                if(User.isAuthenticated())
+                {
+                    $scope.currentUser = User.getCurrent();
+                }else{
+                    $scope.currentUser = false;
+                }
+                
             }])

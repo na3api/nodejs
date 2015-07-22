@@ -1,0 +1,11 @@
+<div ng-controller="EventController"> 
+    <canvas class="game_area" id="myCanvas" ng-mousemove="handleMouseMove(event)"  width="578" height="200">
+        
+    </canvas>
+    <ul id="messages" ng-model="messages_list">
+        <li ng-repeat="mess in messages" ><b>{{mess.user.username}}:</b> {{mess.message}}</li>
+    </ul>
+    <form ng-submit="sendMess()">
+        <input id="m" autocomplete="off" ng-model="message" name="message"/><button >Send</button>
+    </form>
+</div>

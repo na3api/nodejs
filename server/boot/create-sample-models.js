@@ -13,13 +13,13 @@ module.exports = function (app) {
             console.log('Models created: \n', locations);
         });
     });
-    /* create service tables */
-    app.dataSources.db.automigrate(['AccessToken', 'ACL', 'RoleMapping', 'Role'], function (err) {
-        if (err)
-            throw err;
-        else console.log('Tables: AccessToken, ACL, RoleMapping, Role were created');
-            
-    });
+    /* create Messages table */
+//    app.dataSources.db.automigrate('messages', function (err) {
+//        if (err)
+//            throw err;
+//        console.log('Models messages created');
+//       
+//    });
     /* create User table with admin */
     app.dataSources.db.autoupdate('User', function (err) {
         if (err)
@@ -49,5 +49,34 @@ module.exports = function (app) {
             }
             
         })
+    });
+    /* create service tables */
+    app.dataSources.db.automigrate(['AccessToken', 'ACL', 'RoleMapping', 'Role'], function (err) {
+        if (err)
+            throw err;
+        else{
+            console.log('Tables: AccessToken, ACL, RoleMapping, Role were created');    
+            app.models.Role.create([
+                {id: '1', name: 'Admin', description:'Super admin'},
+                {id: '2', name: 'Moderator'},
+                {id: '3', name: 'User'}
+            ], function (err, role) {
+                if (err)
+                    throw err;
+                else
+                {
+                    console.log('Roles created: \n', role);
+                    app.models.RoleMapping.create({
+                        principalType: role.OWNER,
+                        principalId: 1,
+                        roleId:role[0].id
+                        }, function(err, principal) {
+                            if (err)
+                                throw err;
+                    });
+                }
+                
+            });
+        }          
     });
 };

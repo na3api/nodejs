@@ -13,7 +13,7 @@
     }
   },
   "session": {
-     "loopback#session": {
+    "loopback#session": {
       "params": {
         "saveUninitialized": true,
         "resave": true,

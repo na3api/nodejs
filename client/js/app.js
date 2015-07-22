@@ -31,6 +31,11 @@ angular
                         .state('sign-up-success', {
                             url: '/sign-up/success',
                             templateUrl: 'views/sign-up-success.html'
+                        })
+                        .state('index', {
+                            url: '/',
+                            templateUrl: 'views/index.html',
+                            controller: 'index',
                         });
 
             }])

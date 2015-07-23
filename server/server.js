@@ -27,5 +27,10 @@ if (require.main === module) {
         socket.on('disconnect', function () {
             console.log('user disconnected');
         });
+        /* change position */
+        socket.on('change position', function (positions) {
+            app.io.emit('change position', positions);
+        });
     });
+    
 }

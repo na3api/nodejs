@@ -1,0 +1,35 @@
+{
+    "name": "positions",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "id": {
+            "type": "number",
+            "id": true,
+            "index": true
+        },
+        "userId": {
+            "type": "number",
+            "required": true
+        },
+        "posX": {
+            "type": "number"
+        },
+        "posY": {
+            "type": "number"
+        }
+    },
+    "validations": [],
+    "relations": {
+        "user":{
+            "type": "belongsTo",
+            "model": "User",
+            "foreignKey": "userId"
+        }
+    },
+    "acls": [],
+    "methods": []
+}

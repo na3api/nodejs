@@ -20,6 +20,13 @@ module.exports = function (app) {
 //        console.log('Models messages created');
 //       
 //    });
+    /* create positions table */
+    app.dataSources.db.automigrate('positions', function (err) {
+        if (err)
+            throw err;
+        console.log('Models positions created');
+       
+    });
     /* create User table with admin */
     app.dataSources.db.autoupdate('User', function (err) {
         if (err)

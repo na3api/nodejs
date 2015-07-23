@@ -1,5 +1,5 @@
 <div ng-controller="EventController"> 
-    <canvas class="game_area" id="myCanvas" ng-mousemove="handleMouseMove(event)"  width="578" height="200">
+    <canvas class="game_area" id="myCanvas" ng-click="moveUser($event)" width="700" height="300" >
         
     </canvas>
     <ul id="messages" ng-model="messages_list">
@@ -8,4 +8,4 @@
     <form ng-submit="sendMess()">
         <input id="m" autocomplete="off" ng-model="message" name="message"/><button >Send</button>
     </form>
-</div>
+</div> 

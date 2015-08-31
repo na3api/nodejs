@@ -1,0 +1,261 @@
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Roboto", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+}
+ ol, ul {
+ 	list-style-type: none;
+ 	margin: 0;
+ 	padding: 0;
+ }
+#l-pre-footer a {
+ 	color: #efefef;
+ 	text-decoration: none;
+ }
+ .clearfix {
+	content: "";
+	display: table;
+	clear: both;
+ } 
+.list {
+	display: inline-block;
+	vertical-align: top;
+}
+.first-list {
+	width: 250px;
+}
+.second-list {
+	width: 238px;
+}
+.third-list {
+	width: 198px;
+}
+.fourth-list {
+	width: 175px;
+}
+.fivth-list {
+	width: 100px;
+}
+.six-list{
+	width: 193px;
+}
+#l-pre-footer { 
+	background-color: #2d333f;
+	padding: 35px 0 50px 0;
+}
+#l-pre-footer ul li a{
+	line-height: 27px;
+	font-weight: 300;
+}
+#l-pre-footer ul li a:hover,
+.callback li a{
+	text-decoration: none;
+	color: #bbb;
+}
+.list--title {
+	font-size: 16px;
+	text-transform: uppercase;
+	padding-bottom: 20px;
+}
+#l-pre-footer .list--title a {
+	color: #757f92;
+	font-weight: 500;
+}
+.list--title a:hover{
+	color: #fff;
+	text-decoration: none;
+}
+#l-footer {
+	background-color: #232935;
+}
+.call-block {
+	width: 290px;
+	display: inline-block;
+}
+.call {
+	margin: 35px 0px 7px 3px;
+}
+.call li a {
+	color: #a1aabd;
+}
+.call--number {
+	font-size: 30px;
+	color: #a1aabd;
+}
+.list.logo {
+	width: 589px;
+}
+.logo--img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 70px auto;
+	padding-left: 20px;
+}
+.callback {
+	border-radius: 30px;
+	border: 1px solid #383D48;
+	padding: 5px 2px;
+	width: 380px;
+	margin: 7px 0;
+}
+.callback li{
+	display: inline-block;
+}
+.callback li:hover{
+	opacity: 0.8;
+}
+#l-pre-footer .line_height_special{
+	line-height: 22px;
+}
+footer .mail {
+	padding: 5px 30px 7px 45px;
+	position: relative;
+	border-right: 1px solid #383D48;
+}
+footer .mail:before {
+	content: "";
+	position: absolute;
+	background-image: url(../images/mail.png);
+	background-repeat: no-repeat;
+	width: 17px;
+	height: 12px;
+	left: 15px;
+	top: 7px;
+}
+footer .phone {	
+	padding: 5px 20px 5px 40px;
+	position: relative;
+}
+footer .phone:before {
+	content: "";
+	position: absolute;
+	background-image: url(../images/phone.png);
+	width: 14px;
+	height: 14px;
+	left: 15px;
+	top: 7px;
+	background-repeat: no-repeat;
+}
+footer .marker {
+	border: 1px solid #383D48;
+	padding: 11px 45px;
+	font-weight: 300;
+	color: #a1aabd;
+	border-radius: 5px;
+	position: relative;
+	margin-top: 35px;
+}
+footer .marker:before {
+	content: "";
+	position: absolute;
+	background-image: url(../images/marker.png);
+	background-repeat: no-repeat;
+	width: 17px;
+	height: 22px;
+	left: 15px;
+	padding-right: 15px;
+	background-repeat: no-repeat;
+}
+.copyright {
+	color: #A1AABD;
+	margin-top: 25px;
+	font-weight: 300;
+    width: 100%;
+}
+.copy--block {
+	width: 285px;
+	margin-left: 8px;
+}
+
+@media screen and (max-width: 1200px){
+	#l-pre-footer .container{
+		width: 700px;
+		padding-left: 55px;
+	}
+	.fourth-list{
+		width: 135px;
+	}
+	.third-list{
+		width: 250px;
+	}
+	.six-list{
+		width: 243px;
+	}
+	.third-list,
+	 .six-list,
+	  .fivth-list{
+		margin-top: 60px;
+	}
+	#l-footer{
+		text-align: center;
+	}
+	.call-block,.list.logo{
+		width: 100%;
+	}
+	.callback li a{
+		color: #fff;
+	}
+	.logo--img{
+	    margin: 20px auto 0;
+	    padding-left: 0;
+	}
+	.copyright{
+		margin-bottom: 30px;
+	}
+	footer .marker{
+		text-align: left;
+	}
+}
+@media screen and (max-width: 992px){
+	 
+}
+@media screen and (max-width: 768px){
+	#l-pre-footer .container{
+		width: 100%; 
+	}
+	#l-pre-footer .container .list{
+		width: 50%; 
+	}
+	#l-pre-footer .list ul li:not(.list--title){
+		display: none;
+	}
+	.third-list, .six-list, .fivth-list {
+		margin-top: 0;
+	}
+	.list.logo{ 
+	   width: 100%;
+	}
+	.logo--img{
+		padding-left: 0;
+	}
+	.list--title{
+		padding-bottom: 0;
+	}
+
+}
+@media screen and (max-width: 480px){
+	#l-pre-footer .container{
+		padding-left: 40px; 
+	}
+	#l-pre-footer .container .list{
+		width: 100%; 
+	}
+	.callback{
+		border:none;
+		width: 100%;
+	} 
+	.callback li a{
+		border-radius: 15px;
+		border: 1px solid #383D48;
+		width: 190px;
+    	display: block;
+    	margin: 5px;
+	}
+	.copy--block{
+		margin-left: 0;
+	}
+}

@@ -14,7 +14,7 @@ try {
 
     /**
      * Read auto-loader
-     */
+     */   
     include APP_PATH . "/app/config/loader.php";
 
     /**
@@ -26,7 +26,7 @@ try {
      * Handle the request
      */
     $application = new \Phalcon\Mvc\Application($di);
-
+    
     echo $application->handle()->getContent();
 
 } catch (\Exception $e) {

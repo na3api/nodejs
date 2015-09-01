@@ -1,4 +1,3 @@
-{% block footer%}
 <section id="l-pre-footer">
     <div class="container clearfix">
         <div class="list first-list">
@@ -49,14 +48,37 @@
             </ul>
         </div>
 
-        
+        <div class="list fivth-list">
+            <ul>
+                <li class="list--title"><a href="#" onclick="return false;">NEDVEX</a></li>
+                <li><a href="/about" title="{{t_main._('top_meny_about')}}">{{t_main._('top_meny_about')}}</a></li>
+                <li><a href="/realtors" title="{{t_main._('top_meny_realtors')}}">{{t_main._('top_meny_realtors')}}</a></li>
+                <li><a href="/reviews" title="{{t_main._('top_meny_reviews')}}">{{t_main._('top_meny_reviews')}}</a></li>
+                <li><a href="/contacts" title="{{t_main._('top_meny_contacts')}}">{{t_main._('top_meny_contacts')}}</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 </div>
 </section>
 <footer id="l-footer">
     <div class="container">
-        
+        <div class="list call-block">
+            <ul class="call">
+                <li><a href="#">{{t_main._('header_phone')}}</a></li>
+                <li><span class="call--number">header_phone</span></li>
+                <li><span class="call--number call--number-mobile "><a href="tel:header_phone
+                ">header_phone</a></span></li>
+            </ul>
+            <ul class="list callback">
+                <li>
+                    <a href="#" class="mail feedback_button" data-type="primary" data-title="Получить консультацию специалиста по недвижимости">Оставить заявку</a>
+                </li>
+                <li>
+                    <a href="#" class="phone">Обратный звонок</a>
+                </li>
+            </ul>
+        </div>
         <div class="list logo">
             <a href="#">
                 <img src="../images/logo.png" class="logo--img" alt="logo">
@@ -74,4 +96,3 @@
     </div>
 </div>
 </footer>
-{% endblock %}

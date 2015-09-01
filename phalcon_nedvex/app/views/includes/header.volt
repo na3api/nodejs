@@ -8,8 +8,8 @@
     </script>
     <div class="container">
        {% include "includes/top_header.volt" %}
-       {# {% include "includes/top_menu" %}
-        {% include "includes/sub_menu" %}
-        {% include "includes/search_forms" %}    #}
+       {% include "includes/top_menu.volt" %}
+       {% include "includes/sub_menu.volt" %}
+         {# {% include "includes/search_forms" %}    #}
     </div>
 </header>

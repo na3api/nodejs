@@ -7,15 +7,18 @@ class ControllerBase extends Controller
 {
     public function initialize()
     {
+        $this->view->t_main    = $this->getTranslation('main');
+        $this->view->t_enums    = $this->getTranslation('enums');
+        $this->view->t_valid    = $this->getTranslation('validation');
         $this->view->setTemplateAfter('nedvex');
     }
-    protected function getTranslation() {
+    protected function getTranslation($translate_file) {
         // Получение оптимального языка из браузера
-        $language = $this->request->getBestLanguage();
-        require APP_PATH . "/app/messages/ru.php";
+        $language = 'ru';//$this->request->getBestLanguage();
+        
         return new NativeArray(
             array(
-                "content" => $messages
+                "content" => include APP_PATH . "/app/messages/".$language."/". $translate_file. ".php"
             )
         );
     }

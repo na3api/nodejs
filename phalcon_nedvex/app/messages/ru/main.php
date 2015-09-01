@@ -1,7 +1,7 @@
 <?php
 
 // app/messages/ru.php
-$messages = array(
+return array(
     'Flat' => 'Квартира',
     'flats' => 'Квартиры',
     'houses' => 'Дома',

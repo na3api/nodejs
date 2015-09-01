@@ -24,7 +24,6 @@ $di = new FactoryDefault();
 $di->set('url', function () use ($config) {
     $url = new UrlResolver();
     $url->setBaseUri($config->application->baseUri);
-
     return $url;
 }, true);
 
@@ -80,3 +79,6 @@ $di->setShared('session', function () {
 
     return $session;
 });
+
+// load the routes
+include APP_PATH . "/app/services/router.php";

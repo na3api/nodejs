@@ -1,3 +1,3 @@
 {% include "includes/header.volt" %}
-home
+favorites
 {% include "includes/footer.volt" %}

@@ -12,8 +12,7 @@ class FavoritesController extends ControllerBase
         //print_r(111);
         //$this->data['title'] = 'Избранное';
         //$this->data['slider_size'] = Config::get('settings.favorites_slider_size');
-        //$this->data['favorites'] = $this->getFavorites();
-        echo 'test';
+        //$this->data['favorites'] = $this->getFavorites();       
         $this->view->pick("favorites");
         //return view('favorites', $this->data);
     }

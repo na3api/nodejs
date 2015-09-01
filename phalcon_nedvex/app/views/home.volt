@@ -1,5 +1,3 @@
 {% include "includes/header.volt" %}
-{% block content %}
-   
-{% endblock %}
+еуіе
 {% include "includes/footer.volt" %}

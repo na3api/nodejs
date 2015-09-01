@@ -12,7 +12,7 @@ class ControllerBase extends Controller
     protected function getTranslation() {
         // Получение оптимального языка из браузера
         $language = $this->request->getBestLanguage();
-        require "app/messages/ru.php";
+        require APP_PATH . "/app/messages/ru.php";
         return new NativeArray(
             array(
                 "content" => $messages

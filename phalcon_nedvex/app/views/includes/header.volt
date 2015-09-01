@@ -8,8 +8,8 @@
         var slider_size;
     </script>
     <div class="container">
-       {# {% include "includes/top_header" %}
-        {% include "includes/top_menu" %}
+       {% include "includes/top_header.volt" %}
+        {#{% include "includes/top_menu" %}
         {% include "includes/sub_menu" %}
         {% include "includes/search_forms" %}    #}
     </div>

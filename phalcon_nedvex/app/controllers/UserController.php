@@ -1,115 +1,50 @@
 <?php
 
-namespace App\Http\Controllers;
+// namespace Phalcon\Controllers;
+// use Phalcon\Models\Users;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Request;
-use Session;
-use Config;
-use App;
-
-class UserController extends BaseController
+class UserController extends ControllerBase
 {
-    public function __construct()
+
+    public function indexAction()
     {
-        parent::__construct();
+        $this->view->pick("home");
     }
-    
-    /**
-     * Authentification users
-     *
-     * @return Response
-     */
-    public function auth()
+
+    public function RegistrationAction()
     {
-        $this->data['title'] = 'Вход';
-        if (Request::has('auth')) {
-            p(Request::input('auth'));
+        $this->view->pick("auth/register");
+    }
+
+    /**
+     * Creates a User
+     */
+    public function createAction()
+    {
+        if ($this->request->isPost()) {
+// print_r($this->request->getPost());
+            $user = new Users();
+
+            $user->assign(array(
+                'name' => $this->request->getPost('name', 'striptags'),
+                'phone' => $this->request->getPost('phone', 'striptags'),
+                'profilesId' => 2,
+                'password' => $this->request->getPost('password', 'string'),
+                'email' => $this->request->getPost('email', 'email')
+            ));
+
+            if (!$user->save()) {
+                $this->flash->error($user->getMessages());
+            } else {
+
+                $this->flash->success("User was created successfully");
+
+                // Tag::resetInput();
+            }
         }
-        else{
-            return view('auth', $this->data);
-        }
-    }
-    /**
-     * Registration users
-     *
-     * @return Response
-     */
-    public function registration()
-    {
-        $this->data['title'] = 'Регистрация';
-        if (Request::has('registration')) {
-            p(Request::input('registration'));
-        }
-        else{
-            return view('registration', $this->data);
-        }
-    }
-    
-    /**
-     * Ajax - check email
-     *
-     * @return json
-     */
-    public function check_email()
-    {
-        
+
+        // $this->view->form = new UsersForm(null);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
+

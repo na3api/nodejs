@@ -11,3 +11,9 @@ $loader->registerDirs(
         $config->application->modelsDir
     )
 )->register();
+
+// $loader->registerNamespaces(array(
+//     'Nedvex\Models' => $config->application->modelsDir,
+//     'Nedvex\Controllers' => $config->application->controllersDir,
+//     'Nedvex' => $config->application->libraryDir
+// ))->register();

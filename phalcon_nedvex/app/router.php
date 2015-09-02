@@ -11,6 +11,19 @@ $routes->add("/",
         "action"     => "index",
     )
 );
+$routes->add("/registration",
+    array(
+        "controller" => "user",
+        "action"     => "registration",
+    )
+);
+$routes->add("/register",
+    array(
+        "controller" => "user",
+        "action"     => "create",
+    )
+);
+// DEV ONLY 
 $routes->add("/flats",array("controller" => "items","action"=> "index",));
 
 $routes->notFound(array(

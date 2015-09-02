@@ -6,15 +6,13 @@ class FavoritesController extends ControllerBase
      *
      * @return view content
      */
-    //public $data = array();
     public function indexAction()
     {
-        //print_r(111);
-        //$this->data['title'] = 'Избранное';
-        //$this->data['slider_size'] = Config::get('settings.favorites_slider_size');
-        //$this->data['favorites'] = $this->getFavorites();       
+        $this->view->title = 'Избранное';
+        $this->view->slider_size = $this->settings->favorites_slider_size;
+        $this->view->favorites = $this->getFavorites();       
+        
         $this->view->pick("favorites");
-        //return view('favorites', $this->data);
     }
     /**
      * Add to favorite list
@@ -56,6 +54,6 @@ class FavoritesController extends ControllerBase
      * @return Json
      */
     public function getFavorites() {
-        return Session::get('favorites');
+        return $this->session->get('favorites');
     }
 }

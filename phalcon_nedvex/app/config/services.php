@@ -80,5 +80,14 @@ $di->setShared('session', function () {
     return $session;
 });
 
+//Now get the file from the config
+$di->set('config', function () use ($config) {
+    return $config;
+}, true);
+// Now get the file from the config
+$di->set('settings', function(){
+   return include APP_PATH . "/app/config/settings.php";
+});
+
 // load the routes
 include APP_PATH . "/app/services/router.php";

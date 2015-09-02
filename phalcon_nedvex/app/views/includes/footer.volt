@@ -66,9 +66,9 @@
         <div class="list call-block">
             <ul class="call">
                 <li><a href="#">{{t_main._('header_phone')}}</a></li>
-                <li><span class="call--number">header_phone</span></li>
+                <li><span class="call--number">{{settings.header_phone}}</span></li>
                 <li><span class="call--number call--number-mobile "><a href="tel:header_phone
-                ">header_phone</a></span></li>
+                ">{{settings.header_phone}}</a></span></li>
             </ul>
             <ul class="list callback">
                 <li>

@@ -1,35 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
-
-//use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Request;
-use App;
-use Log;
-use Config;
-use Lang;
-
-class ItemsController extends BaseController {
-
-    
-    public function __construct() {
-        parent::__construct();
-    }   
+class ItemsController extends ControllerBase { 
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function index($id = null) {
-        $this->data['title'] = Request::has('title') ? Request::input('title') : $this->title_list[Request::segment(1)];
-        $this->data['keywords'] = '';
-        $this->data['description'] = '';    
-        $this->data['watched'] = $this->watched->getWatched(Config::get('settings.max_you_watched'));
-        $this->data['page'] = Request::segment(1);
-        $this->data['favorites'] = $this->favorites->getFavorites();
-        $this->data['list_title'] = Request::has('title') ? Request::input('title') : $this->title_list[Request::segment(1)];   
+    public function indexAction($id = null) 
+    {
+        $this->view->title = $this->request->getQuery('title') ? $this->request->getQuery('title') : $this->title_list['flats'];
+        $this->view->keywords = '';
+        $this->view->description = '';    
+        //$this->view->watched = $this->watched->getWatched($this->settings->max_you_watched);
+        $this->view->page = 'flats';//'flats';
+        //$this->view->favorites = $this->favorites->getFavorites();
+        $this->view->list_title =  $this->request->has('title') ? $this->request->getQuery('title') : $this->title_list['flats'];   
         if ($id) {
             $pagination = '?pagenumber=' . $id . '&count=' . $this->page_size;
         } else {
@@ -37,36 +22,37 @@ class ItemsController extends BaseController {
         }
 
         /* if has POST Request */
-        if (Request::has($this->data['page'])) {
-            $post = $this->clear_fields(Request::input($this->data['page'])); 
-            if ($request = $this->request($post, $this->links_list[Request::segment(1)] . $pagination)) {
+        if ($this->request->has($this->view->page)) {
+            $post = $this->clear_fields($this->request->getQuery($this->view->page)); 
+            if ($request = $this->request($post, $this->links_list['flats'] . $pagination)) {
                 if (isset($request->Results)) {
-                    $this->data['items'] = $request->Results;
-                    $this->data['pagination']['total_count'] = $request->Total;
+                    $this->view->items = $request->Results;
+                    $this->view->pagination['total_count'] = $request->Total;
                 } else {
-                    $this->data['error'] = $request;
+                    $this->view->error = $request;
                 }
-                $this->data['pagination']['post'] = Request::input();
+                $this->view->pagination['post'] = $this->request->getQuery();
             }
-            $this->data[$this->data['page']] = $post;
+            $this->data[$this->view->page] = $post;
         } else {
-            $request = $this->request(array(), $this->links_list[Request::segment(1)] . $pagination);          
+            $request = $this->request(array(), $this->links_list['flats'] . $pagination); 
             if (isset($request->Results)) {
-                $this->data['items'] = $request->Results;
-                $this->data['pagination']['total_count'] = $request->Total;
+                $this->view->items = $request->Results;
+                $this->view->pagination['total_count'] = $request->Total;
             } else {
-                $this->data['error'] = $request;
+                $this->view->error = $request;
             }
         }
-        if (($total_count = isset($this->data['pagination']['total_count']) ? $this->data['pagination']['total_count'] : 0 ) > $this->page_size) {
-            $this->data['pagination']['page_size'] = $this->page_size;
-            $this->data['pagination']['page'] = $this->data['page'];
-            $this->data['pagination']['current_page'] = $id ? $id : 1;
+        if (($total_count = isset($this->view->pagination['total_count']) ? $this->view->pagination['total_count'] : 0 ) > $this->page_size) {
+            $this->view->pagination['page_size'] = $this->page_size;
+            $this->view->pagination['page'] = $this->view->page;
+            $this->view->pagination['current_page'] = $id ? $id : 1;
         }
-        if (Request::has('form_type')) {
-            $this->data['form_type'] = Request::input('form_type');
+        if ($this->request->has('form_type')) {
+            $this->view->form_type = $this->request->getQuery('form_type');
         }
-        return view('items', $this->data);
+        $this->view->pick("items");
+        //return view('items', $this->data);
     }
 
     /**

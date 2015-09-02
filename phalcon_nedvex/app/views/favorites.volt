@@ -1,3 +1,3 @@
 {% include "includes/header.volt" %}
-favorites
+favorites{{settings.site_name}}
 {% include "includes/footer.volt" %}

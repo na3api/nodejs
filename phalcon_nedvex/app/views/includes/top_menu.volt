@@ -18,7 +18,7 @@
                 </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
         <div class=" h_m_contacts" >
-            <span>header phone</span>
+            <span>{{settings.header_phone}}</span>
             <span>{{ t_main._('header_phone')}}</span>
         </div>
     </div>

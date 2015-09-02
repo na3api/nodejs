@@ -11,10 +11,10 @@ $routes->add("/",
         "action"     => "index",
     )
 );
-// DEV ONLY 
+$routes->add("/flats",array("controller" => "items","action"=> "index",));
 
 $routes->notFound(array(
     "controller" => "error",
-    "action"     => "notFound"
+    "action"     => "404"
 ));
 $routes->handle();

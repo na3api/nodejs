@@ -1,16 +1,14 @@
 <?php
 
 return [
-    'EstateType' => [
-        'Flat' => 'Квартирa',
-        'House' => 'Дом',
-        'Earth' => 'Участок',
-        'Commerce' => 'Коммерция',
-        'Business' => 'Торговая площадь',
-        'Office' => 'Офис',
-        'Hotel' => 'Гостиница',
-        'Store' => 'Склад',
-    ],
+    'EstateType/Flat' => 'Квартирa',
+    'EstateType/House' => 'Дом',
+    'EstateType/Earth' => 'Участок',
+    'EstateType/Commerce' => 'Коммерция',
+    'EstateType/Business' => 'Торговая площадь',
+    'EstateType/Office' => 'Офис',
+    'EstateType/Hotel' => 'Гостиница',
+    'EstateType/Store' => 'Склад',
     'Furnish' => [
         'Raw' => 'Черновая отделка',
         'Clean' => 'Чистовая отделка',
